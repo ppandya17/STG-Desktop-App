@@ -33,9 +33,11 @@
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateShippingFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importShippedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importInboundContainerFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bBBVendorNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.receivingToolStripMenuItem,
+            this.manageToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -82,13 +85,6 @@
             this.importShippedFileToolStripMenuItem.Text = " Import Shipped File";
             this.importShippedFileToolStripMenuItem.Click += new System.EventHandler(this.importShippedFileToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
-            // 
             // receivingToolStripMenuItem
             // 
             this.receivingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -103,6 +99,28 @@
             this.importInboundContainerFileToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.importInboundContainerFileToolStripMenuItem.Text = "Import Inbound Container File";
             this.importInboundContainerFileToolStripMenuItem.Click += new System.EventHandler(this.importInboundContainerFileToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
+            // 
+            // manageToolStripMenuItem
+            // 
+            this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bBBVendorNumberToolStripMenuItem});
+            this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.manageToolStripMenuItem.Text = "Manage";
+            // 
+            // bBBVendorNumberToolStripMenuItem
+            // 
+            this.bBBVendorNumberToolStripMenuItem.Name = "bBBVendorNumberToolStripMenuItem";
+            this.bBBVendorNumberToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.bBBVendorNumberToolStripMenuItem.Text = "BBB Vendor Number";
+            this.bBBVendorNumberToolStripMenuItem.Click += new System.EventHandler(this.BBBVendorNumberToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -135,5 +153,7 @@
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receivingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importInboundContainerFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bBBVendorNumberToolStripMenuItem;
     }
 }

@@ -518,5 +518,288 @@ namespace STG
 
             return true;
         }
+
+        public DataTable GetBBBVendorNumber()
+        {
+
+            String query = @" select [Vendor Number], [pk] FROM tblBBBVendorNumberMaster where isDelete = 'N' ";
+            
+            TextHelper.WriteLine(query);
+
+            return STGGetConnectionGeneratorForBBBVendorNumber(query);
+
+        }
+
+        public DataTable STGGetConnectionGeneratorForBBBVendorNumber(String StrQuery)
+        {
+            String connetionString = ConfigurationManager.ConnectionStrings["STG"].ConnectionString;
+
+            return GetBBBVendorNumbersForDropdown(connetionString, StrQuery);
+        }
+
+        private DataTable GetBBBVendorNumbersForDropdown(String connString, String query)
+        {
+            SqlConnection conn = null;
+            SqlCommand cmd = null;
+            System.Data.DataTable daVendorNumber = new System.Data.DataTable();
+
+            try
+            {
+                TextHelper.WriteLine(" Connecting to STG Database , STGSqlConnection");
+                conn = new SqlConnection(connString);
+                cmd = new SqlCommand(query, conn);
+                conn.Open();
+                TextHelper.WriteLine("Connection Open for STG Database , STGSqlConnection");
+
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(daVendorNumber);
+                TextHelper.WriteLine("Query Run Successfull , STGSqlConnection");
+                conn.Close();
+                TextHelper.WriteLine("Connection Close for STG Database , STGSqlConnection");
+                da.Dispose();
+            }
+            catch (Exception e)
+            {
+                TextHelper.WriteLine("Exception in SQL connection, STGSqlConnection : Message: " + e.Message);
+                if (conn != null && conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+            }
+
+            return daVendorNumber;
+        }
+
+        public bool SubmitVendorNumbercheck(String Item, int VendorNumber)
+        {
+            try
+            {
+                if(Item != "" && Item.Trim().Length == 5 && VendorNumber != -1)
+                {
+                    if (!GenerateQueryBBBVendorNumberCheck(Item, VendorNumber))
+                        return false;
+                }
+                TextHelper.WriteLine("Data Submitted to STG SQL, SubmitVendorNumbercheck");
+            }
+            catch (Exception ex)
+            {
+                TextHelper.WriteLine("Data Submit failed with error, SubmitVendorNumbercheck : " + ex.Message);
+            }
+
+            return true;
+        }
+
+        private bool GenerateQueryBBBVendorNumberCheck(String Item, int VendorNumber)
+        {
+
+            String connetionString = ConfigurationManager.ConnectionStrings["STG"].ConnectionString;
+            StringBuilder queryBuilder = new StringBuilder();
+            queryBuilder.Append(@"INSERT INTO [dbo].[tblBBBVendorNumberCheck]
+                                                               ([Item]
+                                                               ,[Vendor Number]
+                                                               ,[IsDelete]
+                                                               ,[DataInsertTime]
+                                                               ,[DataUpdateTime])
+                                        VALUES(@Item,@VendorNumber,@IsDelete,@DataInserttime,@DataUpdateTime)");
+
+
+            String query = queryBuilder.ToString();
+
+            TextHelper.WriteLine(query);
+
+            try
+            {
+                if (!InsertBBBVendorNumberCheck(connetionString, query, Item, VendorNumber))
+                    return false;
+            }
+            catch
+            {
+                TextHelper.WriteLine("Excetion in STGComm.BuildInsertQueryInboundImport");
+            }
+
+            return true;
+        }
+
+        private bool InsertBBBVendorNumberCheck(String connString, String query, String Item, int VendorNumber)
+        {
+            SqlConnection conn = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                conn = new SqlConnection(connString);
+                cmd = new SqlCommand(query, conn);
+
+
+                cmd.Parameters.Add("@Item", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@VendorNumber", SqlDbType.Int);
+                cmd.Parameters.Add("@IsDelete", SqlDbType.NVarChar, 1);
+                cmd.Parameters.Add("@DataInserttime", SqlDbType.DateTime);
+                cmd.Parameters.Add("@DataUpdateTime", SqlDbType.DateTime);
+
+
+                cmd.Parameters["@Item"].Value = Item.Trim();
+                cmd.Parameters["@VendorNumber"].Value = VendorNumber;
+                cmd.Parameters["@IsDelete"].Value = 'N';
+                cmd.Parameters["@DataInserttime"].Value = DateTime.Now;
+                cmd.Parameters["@DataUpdateTime"].Value = DateTime.Now;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception e)
+            {
+                TextHelper.Print(e.Message, "Exception in SQL connection, STGComm.InsertBBBVendorNumberCheck");
+                if (conn != null && conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public DataTable GetItemsWithVendorNumber()
+        {
+
+            String query = @" select * from View_GetVendorNumberDetails";
+
+            TextHelper.WriteLine(query);
+
+            return STGGetItemsWithVendorNumber(query);
+
+        }
+
+        public DataTable STGGetItemsWithVendorNumber(String StrQuery)
+        {
+            String connetionString = ConfigurationManager.ConnectionStrings["STG"].ConnectionString;
+
+            return SQLGetItemsWithVendorNumbers(connetionString, StrQuery);
+        }
+
+        private DataTable SQLGetItemsWithVendorNumbers(String connString, String query)
+        {
+            SqlConnection conn = null;
+            SqlCommand cmd = null;
+            System.Data.DataTable daVendorNumber = new System.Data.DataTable();
+
+            try
+            {
+                TextHelper.WriteLine(" Connecting to STG Database , STGSqlConnection");
+                conn = new SqlConnection(connString);
+                cmd = new SqlCommand(query, conn);
+                conn.Open();
+                TextHelper.WriteLine("Connection Open for STG Database , STGSqlConnection");
+
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(daVendorNumber);
+                TextHelper.WriteLine("Query Run Successfull , STGSqlConnection");
+                conn.Close();
+                TextHelper.WriteLine("Connection Close for STG Database , STGSqlConnection");
+                da.Dispose();
+            }
+            catch (Exception e)
+            {
+                TextHelper.WriteLine("Exception in SQL connection, STGSqlConnection : Message: " + e.Message);
+                if (conn != null && conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+            }
+
+            return daVendorNumber;
+        }
+
+
+        public bool UpdateVendorNumbercheck(String Item, int VendorNumber)
+        {
+            try
+            {
+                if (Item != "" && Item.Trim().Length == 5 && VendorNumber != -1)
+                {
+                    if (!GenerateUpdateQueryBBBVendorNumberCheck(Item, VendorNumber))
+                        return false;
+                }
+                TextHelper.WriteLine("Data Submitted to STG SQL, SubmitVendorNumbercheck");
+            }
+            catch (Exception ex)
+            {
+                TextHelper.WriteLine("Data Submit failed with error, SubmitVendorNumbercheck : " + ex.Message);
+            }
+
+            return true;
+        }
+
+        private bool GenerateUpdateQueryBBBVendorNumberCheck(String Item, int VendorNumber)
+        {
+
+            String connetionString = ConfigurationManager.ConnectionStrings["STG"].ConnectionString;
+            StringBuilder queryBuilder = new StringBuilder();
+            queryBuilder.Append(@"UPDATE [dbo].[tblBBBVendorNumberCheck] 
+                                    SET [Vendor Number] = @VendorNumber
+                                        ,[DataUpdateTime] = @DataUpdateTime 
+                                    WHERE [Item] = @Item");
+
+            String query = queryBuilder.ToString();
+
+            TextHelper.WriteLine(query);
+
+            try
+            {
+                if (!UpdateBBBVendorNumberCheck(connetionString, query, Item, VendorNumber))
+                    return false;
+            }
+            catch
+            {
+                TextHelper.WriteLine("Excetion in STGComm.BuildInsertQueryInboundImport");
+            }
+
+            return true;
+        }
+
+        private bool UpdateBBBVendorNumberCheck(String connString, String query, String Item, int VendorNumber)
+        {
+            SqlConnection conn = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                conn = new SqlConnection(connString);
+                cmd = new SqlCommand(query, conn);
+
+
+                cmd.Parameters.Add("@Item", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@VendorNumber", SqlDbType.Int);
+                cmd.Parameters.Add("@DataUpdateTime", SqlDbType.DateTime);
+
+
+                cmd.Parameters["@Item"].Value = Item.Trim();
+                cmd.Parameters["@VendorNumber"].Value = VendorNumber;
+                cmd.Parameters["@DataUpdateTime"].Value = DateTime.Now;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception e)
+            {
+                TextHelper.Print(e.Message, "Exception in SQL connection, STGComm.InsertBBBVendorNumberCheck");
+                if (conn != null && conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

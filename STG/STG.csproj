@@ -120,6 +120,12 @@
   <ItemGroup>
     <Compile Include="DataRowExtensions.cs" />
     <Compile Include="DataTableHelper.cs" />
+    <Compile Include="FrmBBBVendorNumberCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBBBVendorNumberCheck.Designer.cs">
+      <DependentUpon>FrmBBBVendorNumberCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImportShippedData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     <Compile Include="StgOrdersCSV.cs" />
     <Compile Include="TextHelper.cs" />
     <Compile Include="Traversing.cs" />
+    <EmbeddedResource Include="FrmBBBVendorNumberCheck.resx">
+      <DependentUpon>FrmBBBVendorNumberCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmImportShippedData.resx">
       <DependentUpon>FrmImportShippedData.cs</DependentUpon>
     </EmbeddedResource>

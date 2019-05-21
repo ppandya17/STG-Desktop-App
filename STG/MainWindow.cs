@@ -83,6 +83,14 @@ namespace STG
             frmReceiving.Show();
         }
 
+        private void BBBVendorNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisposeAllInActiveForms();
+            FrmBBBVendorNumberCheck frmBBBVendorNumberCheck = new FrmBBBVendorNumberCheck();
+            frmBBBVendorNumberCheck.MdiParent = this;
+            frmBBBVendorNumberCheck.Show();
+        }
+
         //private void MainWindow_MdiChildActivate(object sender,
         //                            EventArgs e)
         //{
