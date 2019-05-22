@@ -95,10 +95,11 @@ namespace STG
                 dataGridGP.Refresh();
 
 
-                System.Data.DataTable daPowerhouse = new System.Data.DataTable();
-                System.Data.DataTable daGP = new System.Data.DataTable();
-                System.Data.DataTable daSTG = new System.Data.DataTable();
-                System.Data.DataTable dafinal = new System.Data.DataTable();
+                DataTable daPowerhouse = new DataTable();
+                DataTable daGP = new DataTable();
+                DataTable daSTG = new DataTable();
+                DataTable dafinal = new DataTable();
+                DataTable dtItems = new DataTable();
 
                 daPowerhouse = BuildPHQuery();
 
@@ -114,6 +115,8 @@ namespace STG
                 List<StgOrdersCSV> ListOfObjects = daPowerhouse.DataTableToList<StgOrdersCSV>();
                 ListOfObjects = ListToDT.AddGPDatatoObjects(ListOfObjects, daGP, "Inventory");
 
+
+
                 var ordernNumber = daPowerhouse.AsEnumerable().Select(r => r.Field<String>("StrCustOrdNumber")).ToList();
                 daGP = BuildGPSalesQuery(ordernNumber);
 
@@ -121,9 +124,18 @@ namespace STG
 
                 ListOfObjects = ListToDT.AddGPDatatoObjects(ListOfObjects, daGP, "Order");
 
+                //Add Custom Vendor Numbers============================================================
+
+                STGComm sTGComm = new STGComm();
+                dtItems = sTGComm.GetItemsWithVendorNumber();
+
+                ListOfObjects = ListToDT.AddSTGVendorNumberDatatoObjects(ListOfObjects, dtItems, "BBBVendorNumber");
+                //End adding custom vendor numbres======================================================
+
+
                 // START DATA FILTERATION PROCESS BASED ON STG DB
                 //Get STG data to filter out old waves
-                
+
                 daSTG = GetSTGQuery(ordernNumber);
 
                 TextHelper.WriteLine("Data received from STG");

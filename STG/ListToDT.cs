@@ -114,6 +114,42 @@ namespace STG
             return listSTG;
         }
 
+        public static List<StgOrdersCSV> AddSTGVendorNumberDatatoObjects(List<StgOrdersCSV> listSTG, DataTable daGP, String Identifier)
+        {
+            try
+            {
+                StgOrdersCSV obj = new StgOrdersCSV();
+
+                if (Identifier == "BBBVendorNumber")
+                {
+                    foreach (var row in daGP.AsEnumerable())
+                    {
+
+                        listSTG.Where(o => o.StrItemId == (String)row["Item"].ToString()).ToList().ForEach(o => o.StrBBBVendorNumber = (String)row["Vendor Number"].ToString());
+                        //listSTG.Where(o => o.StrItemId == (String)row["ITEMNMBR"].ToString()).ToList().ForEach(o => o.StrDesription = (String)row["ITEMDESC"].ToString());
+
+                    }
+                }
+
+                if (Identifier != "BBBVendorNumber")
+                {
+                    //foreach (var row in daGP.AsEnumerable())
+                    //{
+                    //    listSTG.Where(o => o.StrCustOrdNumber == (String)row["order_id"].ToString()).ToList().ForEach(o => o.StrRetailerID = (String)row["GP_cust_number"].ToString());
+                    //}
+                }
+
+
+            }
+            catch
+            {
+                TextHelper.WriteLine("Error in AddGPDatatoObjects");
+                return null;
+            }
+
+            return listSTG;
+        }
+
         public static List<StgOrdersCSV> FilterDataFromSTG(List<StgOrdersCSV> listSTG, DataTable daSTG)
         {
             try
