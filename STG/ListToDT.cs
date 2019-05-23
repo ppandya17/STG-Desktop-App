@@ -126,24 +126,30 @@ namespace STG
                     {
 
                         listSTG.Where(o => o.StrItemId == (String)row["Item"].ToString()).ToList().ForEach(o => o.StrBBBVendorNumber = (String)row["Vendor Number"].ToString());
-                        //listSTG.Where(o => o.StrItemId == (String)row["ITEMNMBR"].ToString()).ToList().ForEach(o => o.StrDesription = (String)row["ITEMDESC"].ToString());
-
+                        listSTG.Where(o => o.StrItemId == (String)row["Item"].ToString()).ToList()
+                            .ForEach(o => {
+                                if (o.StrRetailerID.Trim() == "BBBCAN")
+                                {
+                                    o.StrRetailerID = o.StrBBBVendorNumber + "CAN";
+                                } else
+                                {
+                                    o.StrRetailerID = o.StrBBBVendorNumber;
+                                }
+                            });
+                        
                     }
                 }
 
                 if (Identifier != "BBBVendorNumber")
                 {
-                    //foreach (var row in daGP.AsEnumerable())
-                    //{
-                    //    listSTG.Where(o => o.StrCustOrdNumber == (String)row["order_id"].ToString()).ToList().ForEach(o => o.StrRetailerID = (String)row["GP_cust_number"].ToString());
-                    //}
+                    //Nothing to Change
                 }
 
 
             }
-            catch
+            catch (Exception e)
             {
-                TextHelper.WriteLine("Error in AddGPDatatoObjects");
+                TextHelper.WriteLine("Error in AddGPDatatoObjects: " +e.Message);
                 return null;
             }
 
