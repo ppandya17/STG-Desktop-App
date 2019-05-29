@@ -331,10 +331,15 @@ namespace STG
                 for (int i = 1; i < Lines.GetLength(0); i++)
                 {
                     Fields = Lines[i].Split(new char[] { ',' });
-                    Row = dt.NewRow();
-                    for (int f = 0; f < Cols; f++)
-                        Row[f] = Fields[f];
-                    dt.Rows.Add(Row);
+
+                    if(Fields.GetLength(0) == Cols)
+                    {
+                        Row = dt.NewRow();
+                        for (int f = 0; f < Cols; f++)
+                            Row[f] = Fields[f];
+                        dt.Rows.Add(Row);
+                    }
+                    
                 }
                 //dataGridClients.DataSource = dt;
             }

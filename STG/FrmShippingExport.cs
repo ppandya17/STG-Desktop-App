@@ -32,7 +32,7 @@ namespace STG
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Maximized;
 
-            lblVerisonNumber.Text = "1.0.4";
+            lblVerisonNumber.Text = "1.0.5";
             
             DataTable daSTG = GetSTGQuery(null);
 
