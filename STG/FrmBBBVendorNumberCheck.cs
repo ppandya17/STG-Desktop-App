@@ -171,5 +171,18 @@ namespace STG
             }
             
         }
+
+        private void TxtSearchItem_TextChanged(object sender, EventArgs e)
+        {
+            (dgvItemDetails.DataSource as DataTable).DefaultView.RowFilter = string.Format("Item LIKE '%{0}%'", txtSearchItem.Text);
+        }
+
+        private void DgvItemDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            using (SolidBrush b = new SolidBrush(dgvItemDetails.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
+            }
+        }
     }
 }
