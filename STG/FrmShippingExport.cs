@@ -32,18 +32,57 @@ namespace STG
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Maximized;
 
-            lblVerisonNumber.Text = "1.0.5";
+            lblVerisonNumber.Text = "2.0.0";
             
             DataTable daSTG = GetSTGQuery(null);
 
             TextHelper.WriteLine("Data received from STG, Form_load");
 
+            LoadchkCustomerList();
             LoadDataTable(daSTG, "Shipped");
+
 
 //            SplashForm.CloseForm();
             //this.Visible = true;
             //this.BringToFront();
 
+        }
+
+        public void LoadchkCustomerList()
+        {
+            
+
+            String connetionString = ConfigurationManager.ConnectionStrings["Powerhouse"].ConnectionString;
+            String query = @"Select distinct LTRIM(RTRIM(b_company)) as b_company from orders where orders.wave_seq_num is not null Order by b_company";
+
+            DataTable dtCustomer = PHSqlConnection(connetionString, query);
+
+            dataGridCustomerList.Columns.Clear();
+
+            dataGridCustomerList.DataSource = dtCustomer;
+
+            DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+            dgvCmb.ValueType = typeof(bool);
+            dgvCmb.Name = "Chk";
+            dgvCmb.HeaderText = "CheckBox";
+            dataGridCustomerList.Columns.Add(dgvCmb);
+
+            dataGridCustomerList.AutoResizeColumns();
+
+
+            //foreach(DataRow row in dtCustomer.Rows)
+            //{
+            //    CheckBox chk = new CheckBox();
+            //    chk.Text = row["b_company"].ToString();
+            //    chk.CheckedChanged += new EventHandler(Country_Checked);
+            //    flpCustomerList.Controls.Add(chk);
+            //}
+
+        }
+
+        private void Country_Checked(object sender, EventArgs e)
+        {
+            this.SqlDataLoad_Click(sender, e);
         }
 
         private System.Data.DataTable PHSqlConnection(String connString, String query) {
@@ -79,7 +118,29 @@ namespace STG
         private System.Data.DataTable BuildPHQuery() {
 
             String connetionString = ConfigurationManager.ConnectionStrings["Powerhouse"].ConnectionString;
-            String query = @"select * from View_OrdersShippingToSTG";
+            StringBuilder queryBuilder = new StringBuilder();
+            queryBuilder.Append(@"select * from View_OrdersShippingFromEVA");
+            //String query = @"select * from View_OrdersShippingFromEVA";
+
+            var checkedRows = from DataGridViewRow r in dataGridCustomerList.Rows
+                              where Convert.ToBoolean(r.Cells[0].Value) == true
+                              select r;
+
+            if (checkedRows.ToList().Count > 0)
+            {
+                queryBuilder.Append(" where StrBillToName in (");
+
+                foreach (var row in checkedRows)
+                {
+                    queryBuilder.Append("'" + row.Cells["b_company"].Value.ToString() + "',");
+                }
+
+                queryBuilder.Length--;
+                queryBuilder.Append(")");
+
+            }
+
+            String query = queryBuilder.ToString().TrimEnd(',');
 
             return PHSqlConnection(connetionString, query);
         }
@@ -104,18 +165,15 @@ namespace STG
                 daPowerhouse = BuildPHQuery();
 
                 TextHelper.WriteLine("Data received from Powerhouse");
-                //dataGridView.Columns.Clear();
-                //dataGridView.DataSource = daPowerhouse;
-
-                var itemIds = daPowerhouse.AsEnumerable().Select(r => r.Field<String>("StrItemId")).ToList();
-                daGP = BuildGPQuery(itemIds);
-
-                TextHelper.WriteLine("Data received from GP Inventory");
+                
+                //Removed 09/20/21. Bringing data in the original Query. 
+                //var itemIds = daPowerhouse.AsEnumerable().Select(r => r.Field<String>("StrItemId")).ToList();
+                //daGP = BuildGPQuery(itemIds);
+                //TextHelper.WriteLine("Data received from GP Inventory");
 
                 List<StgOrdersCSV> ListOfObjects = daPowerhouse.DataTableToList<StgOrdersCSV>();
-                ListOfObjects = ListToDT.AddGPDatatoObjects(ListOfObjects, daGP, "Inventory");
-
-
+                //Removed 09/20/21. Bringing data in the original Query.
+                //ListOfObjects = ListToDT.AddGPDatatoObjects(ListOfObjects, daGP, "Inventory");
 
                 var ordernNumber = daPowerhouse.AsEnumerable().Select(r => r.Field<String>("StrCustOrdNumber")).ToList();
                 daGP = BuildGPSalesQuery(ordernNumber);
@@ -345,7 +403,7 @@ namespace STG
         {
             DataTable dt = new DataTable();
 
-            String message = "You are going to send Order Details to St. George warehouse. Continue this operation?";
+            String message = "File will be generated to send the Order Details to 3PL warehouse. Continue this operation?";
             String caption = "Irreversible Action";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             var result = MessageBox.Show(message, caption, buttons);
@@ -364,7 +422,7 @@ namespace STG
                 if (STGComm.SubmitDatatoSTG(dt))
                 {
 
-                    message = @"Data Successfully Sent to FTP Drive";
+                    message = @"Data Successfully Sent to C:\3PL_Excel_Exports\CSV\";
                     caption = "Export Successful";
                     buttons = MessageBoxButtons.OK;
                     MessageBox.Show(message, caption, buttons);
@@ -404,7 +462,7 @@ namespace STG
 
                 ListToDT.GenerateExcel(dt);
 
-                String message = @"File exported in Path: C:\STG_Excel_Exports\STG_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".xlsx";
+                String message = @"File exported in Path: C:\3PL_Excel_Exports\3PL_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".xlsx";
                 String caption = "Export Successful";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, buttons);
@@ -418,6 +476,8 @@ namespace STG
             }
 
         }
+
+
 
         public void LoadDataTable(DataTable dt, String Identifier)
         {
@@ -453,15 +513,15 @@ namespace STG
                     dataGridGP.Columns[5].HeaderText = "Ship Method of Payment";
                     dataGridGP.Columns[6].HeaderText = "Ship to Code";
                     dataGridGP.Columns[7].HeaderText = "Ship to Name";
-                    dataGridGP.Columns[8].HeaderText = "Bill to Name";
-                    dataGridGP.Columns[9].HeaderText = "Bill to Address Line 1";
-                    dataGridGP.Columns[10].HeaderText = "Bill to Address Line 2";
-                    dataGridGP.Columns[11].HeaderText = "Bill to City";
-                    dataGridGP.Columns[12].HeaderText = "Bill to State";
-                    dataGridGP.Columns[13].HeaderText = "Bill to Postal Code";
-                    dataGridGP.Columns[14].HeaderText = "Bill to Country";
-                    dataGridGP.Columns[15].HeaderText = "Bill to Phone";
-                    dataGridGP.Columns[16].HeaderText = "Bill to Email";
+                    dataGridGP.Columns[8].HeaderText = "Company";
+                    dataGridGP.Columns[9].HeaderText = "Ship to Address Line 1";
+                    dataGridGP.Columns[10].HeaderText = "Ship to Address Line 2";
+                    dataGridGP.Columns[11].HeaderText = "Ship to City";
+                    dataGridGP.Columns[12].HeaderText = "Ship to State";
+                    dataGridGP.Columns[13].HeaderText = "Ship to Postal Code";
+                    dataGridGP.Columns[14].HeaderText = "Ship to Country";
+                    dataGridGP.Columns[15].HeaderText = "Ship to Phone";
+                    dataGridGP.Columns[16].HeaderText = "Ship to Email";
                     dataGridGP.Columns[17].HeaderText = "DC";
                     dataGridGP.Columns[18].HeaderText = "DEPT #";
                     dataGridGP.Columns[19].HeaderText = "CON ID / Retailer ID";
@@ -471,6 +531,7 @@ namespace STG
                     dataGridGP.Columns[23].HeaderText = "DESCRIPTION";
                     dataGridGP.Columns[24].HeaderText = "UPC";
                     dataGridGP.Columns[25].HeaderText = "Wave Number";
+                    dataGridGP.Columns[25].DisplayIndex = 0;
 
                     var rows = dt.Rows.OfType<DataRow>();
                     //for (int i = 1; i < dt.Columns.Count; i++)
@@ -546,7 +607,6 @@ namespace STG
             }
         }
 
-       
     }
 
 }

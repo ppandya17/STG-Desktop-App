@@ -193,7 +193,7 @@ namespace STG
             ExcelPackage excelPkg = new ExcelPackage();
             ExcelWorksheet wsSheet1 = excelPkg.Workbook.Worksheets.Add("sheet1");
             using (ExcelRange r1 = wsSheet1.Cells[2, 2, 2, 2]) {
-                r1.Value = "STG Orders for Shipping";
+                r1.Value = "3PL Orders for Shipping";
                 r1.Style.Font.Size = 16;
                 r1.Style.Font.Bold = true;    
             }
@@ -206,8 +206,8 @@ namespace STG
 
             wsSheet1.Protection.IsProtected = false;
             wsSheet1.Protection.AllowSelectLockedCells = false;
-            System.IO.Directory.CreateDirectory(@"C:\STG_Excel_Exports");
-            excelPkg.SaveAs(new FileInfo(@"C:\STG_Excel_Exports\STG_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".xlsx"));
+            System.IO.Directory.CreateDirectory(@"C:\3PL_Excel_Exports");
+            excelPkg.SaveAs(new FileInfo(@"C:\3PL_Excel_Exports\EVA_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".xlsx"));
             //excelPkg.SaveAs(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"Excel_Reports\", "STG.xlsx")));
 
         }
@@ -248,15 +248,15 @@ namespace STG
                 dt.Columns["StrShpMethodPayment"].ColumnName = "Ship Method of Payment";
                 dt.Columns["StrShpToCode"].ColumnName = "Ship to Code";
                 dt.Columns["StrShpToName"].ColumnName = "Ship to Name";
-                dt.Columns["StrBillToName"].ColumnName = "Bill to Name";
-                dt.Columns["StrBillToAddress1"].ColumnName = "Bill to Address Line 1";
-                dt.Columns["StrBillToAddress2"].ColumnName = "Bill to Address Line 2";
-                dt.Columns["StrBillToCity"].ColumnName = "Bill to City";
-                dt.Columns["StrBillToState"].ColumnName = "Bill to State";
-                dt.Columns["StrBillToPostalCode"].ColumnName = "Bill to Postal Code";
-                dt.Columns["StrBillToCountry"].ColumnName = "Bill to Country";
-                dt.Columns["StrBillToPhone"].ColumnName = "Bill to Phone";
-                dt.Columns["StrBillToEmail"].ColumnName = "Bill to Email";
+                dt.Columns["StrBillToName"].ColumnName = "Company";
+                dt.Columns["StrBillToAddress1"].ColumnName = "Ship to Address Line 1";
+                dt.Columns["StrBillToAddress2"].ColumnName = "Ship to Address Line 2";
+                dt.Columns["StrBillToCity"].ColumnName = "Ship to City";
+                dt.Columns["StrBillToState"].ColumnName = "Ship to State";
+                dt.Columns["StrBillToPostalCode"].ColumnName = "Ship to Postal Code";
+                dt.Columns["StrBillToCountry"].ColumnName = "Ship to Country";
+                dt.Columns["StrBillToPhone"].ColumnName = "Ship to Phone";
+                dt.Columns["StrBillToEmail"].ColumnName = "Ship to Email";
                 dt.Columns["StrDC"].ColumnName = "DC";
                 dt.Columns["StrDept"].ColumnName = "DEPT #";
                 dt.Columns["StrRetailerID"].ColumnName = "CON ID / Retailer ID";
@@ -267,41 +267,19 @@ namespace STG
                 dt.Columns["StrUPC"].ColumnName = "UPC";
                 dt.Columns["StrWave"].ColumnName = "Wave";
 
-                dt.Columns.Add("Ship to Address Line 1").SetOrdinal(8);
-                dt.Columns.Add("Ship to Address Line 2").SetOrdinal(9);
-                dt.Columns.Add("Ship to City").SetOrdinal(10);
-                dt.Columns.Add("Ship to State").SetOrdinal(11);
-                dt.Columns.Add("Ship to Zip").SetOrdinal(12);
-                dt.Columns.Add("Ship to Country").SetOrdinal(13);
-                dt.Columns.Add("Ship to Phone").SetOrdinal(14);
-                dt.Columns.Add("Ship to Email").SetOrdinal(15);
+                
+                //dt.Columns.Add("Ship to Address Line 1").SetOrdinal(8);
+                //dt.Columns.Add("Ship to Address Line 2").SetOrdinal(9);
+                //dt.Columns.Add("Ship to City").SetOrdinal(10);
+                //dt.Columns.Add("Ship to State").SetOrdinal(11);
+                //dt.Columns.Add("Ship to Zip").SetOrdinal(12);
+                //dt.Columns.Add("Ship to Country").SetOrdinal(13);
+                //dt.Columns.Add("Ship to Phone").SetOrdinal(14);
+                //dt.Columns.Add("Ship to Email").SetOrdinal(15);
 
                 //dt.Columns.Add("BBB Vendor Number").SetOrdinal(28);
-                dt.Columns.Add("3RD PARTY ACCT#").SetOrdinal(29);
-                dt.Columns.Add("MARK FOR NAME").SetOrdinal(30);
-                dt.Columns.Add("MARK FOR ADDR1").SetOrdinal(31);
-                dt.Columns.Add("MARK FOR ADDR2").SetOrdinal(32);
-                dt.Columns.Add("MARK FOR CITY").SetOrdinal(33);
-                dt.Columns.Add("MARK FOR STATE").SetOrdinal(34);
-                dt.Columns.Add("MARK FOR ZIP").SetOrdinal(35);
-                dt.Columns.Add("MARK FOR STORE").SetOrdinal(36);
-                dt.Columns.Add("MARK FOR COUNTRY").SetOrdinal(37);
-                dt.Columns.Add("GIFT MESSAGE").SetOrdinal(38);
-                dt.Columns.Add("CUSTOMER REF").SetOrdinal(39);
-                dt.Columns.Add("Free Field").SetOrdinal(40);
-                dt.Columns.Add("Tax").SetOrdinal(41);
+                //dt.Columns.Add("3RD PARTY ACCT#").SetOrdinal(29);
 
-                dt.Columns.Add("IN nbr (Buyer Catalog)").SetOrdinal(46);
-                dt.Columns.Add("PLN  (Buyer’s Catalog or Stock Keeping)").SetOrdinal(47);
-                dt.Columns.Add("Unit Price").SetOrdinal(48);
-                dt.Columns.Add("Line Number").SetOrdinal(49);
-                dt.Columns.Add("Customer").SetOrdinal(50);
-                dt.Columns.Add("Tarriff/Unified Code").SetOrdinal(51);
-                dt.Columns.Add("Currency").SetOrdinal(52);
-                dt.Columns.Add("COO").SetOrdinal(53);
-                dt.Columns.Add("Export Reason").SetOrdinal(54);
-                dt.Columns.Add("Signature").SetOrdinal(55);
-                
 
             } catch (Exception ex)
             {

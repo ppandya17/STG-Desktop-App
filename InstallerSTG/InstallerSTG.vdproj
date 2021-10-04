@@ -22,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
-        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
+        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,7 +34,7 @@
         "Entry"
         {
         "MsmKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
-        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
+        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,13 +64,13 @@
         "Entry"
         {
         "MsmKey" = "8:_7788391A268F58B872C1B8C194A47B3C"
-        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
+        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7788391A268F58B872C1B8C194A47B3C"
-        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
+        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,13 +82,13 @@
         "Entry"
         {
         "MsmKey" = "8:_84F1950546275AE502B1917235C219A2"
-        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
+        "OwnerKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_84F1950546275AE502B1917235C219A2"
-        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
+        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,13 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_84F1950546275AE502B1917235C219A2"
-        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
+        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_84F1950546275AE502B1917235C219A2"
-        "OwnerKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
+        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
-        "OwnerKey" = "8:_3A93A5A790AE44488830AC394054C417"
+        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,7 +130,7 @@
         "Entry"
         {
         "MsmKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
-        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
+        "OwnerKey" = "8:_3A93A5A790AE44488830AC394054C417"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,13 +154,13 @@
         "Entry"
         {
         "MsmKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
-        "OwnerKey" = "8:_3A93A5A790AE44488830AC394054C417"
+        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
-        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
+        "OwnerKey" = "8:_3A93A5A790AE44488830AC394054C417"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,55 +196,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B3728D8753BBDACC1BD4E2D006D3D9C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CCBC4186EEEF8DBAF4EE70B9CF7B3F5F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_84F1950546275AE502B1917235C219A2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EB76F60B9165D635BA28B7DD0F30C76A"
+        "OwnerKey" = "8:_D493064B269FFAB7C98465A1C96A20FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -256,7 +208,55 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D493064B269FFAB7C98465A1C96A20FC"
+        "OwnerKey" = "8:_EB76F60B9165D635BA28B7DD0F30C76A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_84F1950546275AE502B1917235C219A2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CCBC4186EEEF8DBAF4EE70B9CF7B3F5F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B61D21F5CB70358E1522626C7EBD06AF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9A35457B93E4ED7D0D92CA9F030AD8E8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1335230AF91C73D6C49EBCA9ECA840EB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4B7CA29331E90F7903CFA312035A3FC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B3728D8753BBDACC1BD4E2D006D3D9C8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A9DFF07D2D64416FA47C33FA76C920D3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -361,11 +361,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Engine, Version=13.8.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1335230AF91C73D6C49EBCA9ECA840EB"
-                    {
-                    "Name" = "8:Qlik.Engine.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Engine.dll"
             "TargetName" = "8:"
@@ -392,11 +387,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Engine.Extensions, Version=13.8.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_4B7CA29331E90F7903CFA312035A3FC0"
-                    {
-                    "Name" = "8:Qlik.Engine.Extensions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Engine.Extensions.dll"
             "TargetName" = "8:"
@@ -423,11 +413,6 @@
             "AssemblyAsmDisplayName" = "8:Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7788391A268F58B872C1B8C194A47B3C"
-                    {
-                    "Name" = "8:Autofac.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Autofac.dll"
             "TargetName" = "8:"
@@ -454,11 +439,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_84F1950546275AE502B1917235C219A2"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -485,11 +465,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Sense.JsonRpc, Version=26.5.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_9A35457B93E4ED7D0D92CA9F030AD8E8"
-                    {
-                    "Name" = "8:Qlik.Sense.JsonRpc.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Sense.JsonRpc.dll"
             "TargetName" = "8:"
@@ -516,11 +491,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Sense.Client, Version=13.8.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A9DFF07D2D64416FA47C33FA76C920D3"
-                    {
-                    "Name" = "8:Qlik.Sense.Client.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Sense.Client.dll"
             "TargetName" = "8:"
@@ -547,11 +517,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Engine.Extensions.WinForms, Version=13.8.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B3728D8753BBDACC1BD4E2D006D3D9C8"
-                    {
-                    "Name" = "8:Qlik.Engine.Extensions.WinForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Engine.Extensions.WinForms.dll"
             "TargetName" = "8:"
@@ -578,11 +543,6 @@
             "AssemblyAsmDisplayName" = "8:Qlik.Sense.Communication, Version=26.5.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B61D21F5CB70358E1522626C7EBD06AF"
-                    {
-                    "Name" = "8:Qlik.Sense.Communication.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Qlik.Sense.Communication.dll"
             "TargetName" = "8:"
@@ -609,11 +569,6 @@
             "AssemblyAsmDisplayName" = "8:BouncyCastle.CryptoExt, Version=1.7.4114.6378, Culture=neutral, PublicKeyToken=0e99375e54769942"
                 "ScatterAssemblies"
                 {
-                    "_CCBC4186EEEF8DBAF4EE70B9CF7B3F5F"
-                    {
-                    "Name" = "8:BouncyCastle.CryptoExt.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BouncyCastle.CryptoExt.dll"
             "TargetName" = "8:"
@@ -640,11 +595,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_D493064B269FFAB7C98465A1C96A20FC"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -671,11 +621,6 @@
             "AssemblyAsmDisplayName" = "8:EPPlus, Version=4.5.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EB76F60B9165D635BA28B7DD0F30C76A"
-                    {
-                    "Name" = "8:EPPlus.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EPPlus.dll"
             "TargetName" = "8:"
@@ -751,15 +696,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:STG Data Sync Tool"
-        "ProductCode" = "8:{C90F9151-5B52-48D7-9FCE-47AFF6B4FC85}"
-        "PackageCode" = "8:{64B6586B-82B8-4A32-AAAB-2218D3ACF905}"
+        "ProductCode" = "8:{CF5E5DC3-64F6-4210-B3AE-5F11A8BB984D}"
+        "PackageCode" = "8:{33164358-81E2-48AD-8E90-443F3F63A762}"
         "UpgradeCode" = "8:{2EA68A54-EFFB-4677-A97D-E3F85D02BAA7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.5"
+        "ProductVersion" = "8:1.0.6"
         "Manufacturer" = "8:BHF"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

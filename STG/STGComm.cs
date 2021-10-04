@@ -62,11 +62,11 @@ namespace STG
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
+                        IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString().Trim());
                         sb.AppendLine(string.Join(",", fields));
                     }
 
-                    File.WriteAllText(@"C:\STG_Excel_Exports\CSV_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".csv", sb.ToString());
+                    File.WriteAllText(@"C:\3PL_Excel_Exports\CSV\CSV_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".csv", sb.ToString());
                     
                 } else
                 {
