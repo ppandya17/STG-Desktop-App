@@ -260,14 +260,14 @@ namespace STG
                 dt.Columns["StrDC"].ColumnName = "DC";
                 dt.Columns["StrDept"].ColumnName = "DEPT #";
                 dt.Columns["StrRetailerID"].ColumnName = "CON ID / Retailer ID";
-                dt.Columns["StrBBBVendorNumber"].ColumnName = "BBB Vendor Number";
+                dt.Columns["StrBBBVendorNumber"].ColumnName = "Vendor Number";
                 dt.Columns["StrItemId"].ColumnName = "Item";
                 dt.Columns["StrQTYOrdered"].ColumnName = "Quantity Ordered";
                 dt.Columns["StrDesription"].ColumnName = "DESCRIPTION";
                 dt.Columns["StrUPC"].ColumnName = "UPC";
                 dt.Columns["StrWave"].ColumnName = "Wave";
+                dt.Columns["casepack"].ColumnName = "CasePack";
 
-                
                 //dt.Columns.Add("Ship to Address Line 1").SetOrdinal(8);
                 //dt.Columns.Add("Ship to Address Line 2").SetOrdinal(9);
                 //dt.Columns.Add("Ship to City").SetOrdinal(10);

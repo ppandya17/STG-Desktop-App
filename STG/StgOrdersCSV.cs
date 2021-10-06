@@ -60,5 +60,6 @@ namespace STG
 
         public int StrWave { get; set; }
 
+        public string casepack { get; set; }
     }
 }

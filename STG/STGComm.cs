@@ -12,13 +12,13 @@ namespace STG
 {
     class STGComm
     {
-        public static bool SubmitDatatoSTG(DataTable dtCSV)
+        public static bool SubmitDatatoSTG(DataTable dtCSV, string csvFileName)
         {
             DataTable dt = dtCSV.Copy();
             
             try
             {
-                if (!GenerateCSV(dtCSV))
+                if (!GenerateCSV(dtCSV, csvFileName))
                 {
                     return false;
                 }
@@ -46,7 +46,7 @@ namespace STG
             return true;
         }
 
-        private static bool GenerateCSV(DataTable dt)
+        private static bool GenerateCSV(DataTable dt, string csvFileName)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -66,7 +66,7 @@ namespace STG
                         sb.AppendLine(string.Join(",", fields));
                     }
 
-                    File.WriteAllText(@"C:\3PL_Excel_Exports\CSV\CSV_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".csv", sb.ToString());
+                    File.WriteAllText(@"C:\3PL_Excel_Exports\CSV\" + csvFileName.Trim() , sb.ToString());
                     
                 } else
                 {

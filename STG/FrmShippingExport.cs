@@ -419,10 +419,10 @@ namespace STG
 
             try
             {
-                if (STGComm.SubmitDatatoSTG(dt))
+                string csvFileName = "CSV_" + DateTime.Now.ToString("MMddyyyy_HH_mm_ss") + ".csv";
+                if (STGComm.SubmitDatatoSTG(dt, csvFileName))
                 {
-
-                    message = @"Data Successfully Sent to C:\3PL_Excel_Exports\CSV\";
+                    message = @"File Successfully Generated at C:\3PL_Excel_Exports\CSV\" + csvFileName.Trim();
                     caption = "Export Successful";
                     buttons = MessageBoxButtons.OK;
                     MessageBox.Show(message, caption, buttons);
@@ -532,6 +532,7 @@ namespace STG
                     dataGridGP.Columns[24].HeaderText = "UPC";
                     dataGridGP.Columns[25].HeaderText = "Wave Number";
                     dataGridGP.Columns[25].DisplayIndex = 0;
+                    dataGridGP.Columns["casepack"].HeaderText = "CasePack";
 
                     var rows = dt.Rows.OfType<DataRow>();
                     //for (int i = 1; i < dt.Columns.Count; i++)
